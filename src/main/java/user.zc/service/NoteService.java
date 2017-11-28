@@ -3,7 +3,6 @@ package user.zc.service;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.Service;
 import user.zc.model.Note;
-import user.zc.util.NoteException;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,6 +25,7 @@ public class NoteService extends Service {
         note.setTitle("Java");
         note.setContent("一切皆是对象");
         note.setStar(true);
+        note.setVersion(1L);
         noteList.add(note);
 
         Note note1 = new Note();
@@ -34,6 +34,7 @@ public class NoteService extends Service {
         note1.setTitle("Python");
         note1.setContent("不要重复造轮子");
         note1.setStar(false);
+        note1.setVersion(1L);
         noteList.add(note1);
     }
     public List<Note> queryNoteList(){
@@ -42,10 +43,11 @@ public class NoteService extends Service {
     public void synchronizationData(List<Note> newNoteList)throws Exception{
         for(Note note :newNoteList){
             for(Note oldNote:noteList){
-                if(note.getId().equalsIgnoreCase(oldNote.getId())){
+                if(note.getId().equalsIgnoreCase(oldNote.getId())&&note.getVersion()==oldNote.getVersion()){
                     oldNote.setContent(note.getContent());
                     oldNote.setTitle(note.getTitle());
                     oldNote.setStar(note.getStar());
+                    oldNote.setVersion(oldNote.getVersion()+1);
                     break;
                 }
             }
@@ -66,6 +68,7 @@ public class NoteService extends Service {
         note.setTitle("标题");
         note.setContent("正文");
         note.setStar(true);
+        note.setVersion(1L);
         noteList.add(note);
         return note;
     }

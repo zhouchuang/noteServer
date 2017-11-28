@@ -3,7 +3,6 @@ package user.zc.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.nutz.dao.entity.annotation.PK;
 
 import java.util.Date;
 
@@ -21,4 +20,5 @@ public class Note extends BaseModel {
         private String content;
         private Boolean star;
         private Date time;
+        private long version;
 }

@@ -8,6 +8,7 @@ package user.zc;
 
 import org.nutz.ioc.loader.annotation.IocBean;
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ public class CORSFilter implements Filter {
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
         filterChain.doFilter(servletRequest, servletResponse);
+
     }
 
     @Override

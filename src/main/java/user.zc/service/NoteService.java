@@ -20,7 +20,7 @@ public class NoteService extends Service {
         List<Note> list = new ArrayList<Note>();
         Note note = new Note();
         note.setId(UUID.randomUUID().toString());
-        note.setCreateTime(new Date());
+        note.setTime(new Date());
         note.setTitle("Java");
         note.setContent("一切皆是对象");
         note.setStar(true);
@@ -28,7 +28,7 @@ public class NoteService extends Service {
 
         Note note1 = new Note();
         note1.setId(UUID.randomUUID().toString());
-        note1.setCreateTime(new Date());
+        note1.setTime(new Date());
         note1.setTitle("Python");
         note1.setContent("不要重复造轮子");
         note1.setStar(false);

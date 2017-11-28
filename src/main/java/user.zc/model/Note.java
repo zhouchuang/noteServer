@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.nutz.dao.entity.annotation.PK;
 
+import java.util.Date;
+
 /**
  * @description：笔记实体类
  * @author：zhouchuang
@@ -18,4 +20,5 @@ public class Note extends BaseModel {
         private String author;
         private String content;
         private Boolean star;
+        private Date time;
 }
